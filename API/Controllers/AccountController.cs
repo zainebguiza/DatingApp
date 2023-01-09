@@ -34,7 +34,7 @@ namespace API.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return new UserDto{
-                UserName=user.UserName,
+                username=user.UserName,
                 Token=_tokenService.CreateToken(user)
             };
         }
@@ -51,7 +51,7 @@ namespace API.Controllers
                 return Unauthorized("invalid password");
              }
              return new UserDto{
-                UserName=user.UserName,
+                username=user.UserName,
                 Token=_tokenService.CreateToken(user)
             };
         }
